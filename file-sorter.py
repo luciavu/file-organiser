@@ -1,7 +1,6 @@
 import os, shutil
 
 def sort_directory(path):
-
     # Check directory path exists
     if not os.path.exists(path):
         print(f"Error: Directory '{path}' does not exist.")
@@ -32,7 +31,6 @@ def sort_directory(path):
 }
 
     print("\nSorting files...")
-
     # Create folders to sort files into if not exist already
     for folder in set(file_ext.values()):
         folder_path = os.path.join(path, folder)
@@ -58,8 +56,7 @@ def sort_directory(path):
                 shutil.move(src_path, dst_path)
                 print(f"Moved {file} to {dst_folder}")
                 
-        print("Done!")
-
+        print("Done!\n")
     except OSError as e:
         print(f"Error {e}")
 
