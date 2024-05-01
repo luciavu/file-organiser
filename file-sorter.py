@@ -1,7 +1,10 @@
 import os, shutil
 
+TOTAL_FOLDERS = 8
+
 def sort_directory(path):
     # Check directory path exists
+    print(path)
     if not os.path.exists(path):
         print(f"Error: Directory '{path}' does not exist.")
         return
@@ -36,10 +39,15 @@ def sort_directory(path):
         folder_path = os.path.join(path, folder)
         os.makedirs(folder_path, exist_ok=True)
 
+    # Count sorted files
+    total_files = -TOTAL_FOLDERS
+    sorted = 0 
+
     # Sort files into respective folders
     try:
         # Get file path
         for file in os.listdir():
+            total_files += 1
             src_path = os.path.join(path, file)
 
             # Get file format
@@ -49,6 +57,8 @@ def sort_directory(path):
                 # If file format not in dictionary, move to Other
                 if ext.lower() not in file_ext:
                     ext = "unknown"
+                else:
+                    sorted += 1
                 
                 # Move file to matching extension folder
                 dst_folder = file_ext[ext.lower()]
@@ -56,7 +66,9 @@ def sort_directory(path):
                 shutil.move(src_path, dst_path)
                 print(f"Moved {file} to {dst_folder}")
                 
-        print("Done!\n")
+        print("Done!") 
+        print(f"Sorted: {sorted}/{total_files} files.\n")
+
     except OSError as e:
         print(f"Error {e}")
 
