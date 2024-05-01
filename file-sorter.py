@@ -1,15 +1,14 @@
 import os, shutil
 
-def sort_directory(user, directory):
-    full_path = os.path.join("C:\\Users", user, directory)
+def sort_directory(path):
 
     # Check directory path exists
-    if not os.path.exists(full_path):
-        print(f"Error: Directory '{full_path}' does not exist.")
+    if not os.path.exists(path):
+        print(f"Error: Directory '{path}' does not exist.")
         return
     
     # Change current working directory to chosen
-    os.chdir(full_path)  
+    os.chdir(path)  
 
     # Dictionary of common file formats
     file_ext = {
@@ -36,14 +35,14 @@ def sort_directory(user, directory):
 
     # Create folders to sort files into if not exist already
     for folder in set(file_ext.values()):
-        folder_path = os.path.join(full_path, folder)
+        folder_path = os.path.join(path, folder)
         os.makedirs(folder_path, exist_ok=True)
 
     # Sort files into respective folders
     try:
         # Get file path
         for file in os.listdir():
-            src_path = os.path.join(full_path, file)
+            src_path = os.path.join(path, file)
 
             # Get file format
             if os.path.isfile(src_path):
@@ -55,7 +54,7 @@ def sort_directory(user, directory):
                 
                 # Move file to matching extension folder
                 dst_folder = file_ext[ext.lower()]
-                dst_path = os.path.join(full_path, dst_folder, file)
+                dst_path = os.path.join(path, dst_folder, file)
                 shutil.move(src_path, dst_path)
                 print(f"Moved {file} to {dst_folder}")
                 
@@ -66,19 +65,12 @@ def sort_directory(user, directory):
 
 def welcome_message():
     print("Welcome to File Sorter!")
-    print("Please choose a directory path to organise.")
-    print("\nExamples of directory paths:\nDownloads\nDocuments" + r"\folder_name")
-    print(r"OneDrive\Documents\folder_name")
-
-def get_user_input():
-    directory = input("\nEnter directory path: ")
-    user = input("Enter username: ")
-    return user, directory
+    print("Please copy the directory path you would like to organise, " + r"for example: C:\Users\your_username\Documents")
 
 def main():
     welcome_message()
-    user, directory = get_user_input()
-    sort_directory(user, directory)
+    path = input("Paste the directory path here: ")
+    sort_directory(path)
 
 if __name__ == "__main__":
     main()
