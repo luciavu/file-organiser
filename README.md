@@ -1,6 +1,6 @@
 # File Sorter
 
-A Python script that organises your files in a chosen directory by sorting them into folders based on their file extensions.
+A Python script that organises your files in a chosen directory by sorting them into folders based on their file extension.
 
 ## Usage
 1. Install Python
