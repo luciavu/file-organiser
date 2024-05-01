@@ -32,7 +32,7 @@ def sort_directory(user, directory):
     "unknown": "Other"
 }
 
-    print("Sorting files...")
+    print("\nSorting files...")
 
     # Create folders to sort files into if not exist already
     for folder in set(file_ext.values()):
@@ -65,10 +65,8 @@ def sort_directory(user, directory):
         print(f"Error {e}")
 
 def welcome_message():
-    print("-" * 50)
     print("Welcome to File Sorter!")
-    print("This program helps you organise files on your desktop.")
-    print("Please choose a directory path to clean up.")
+    print("Please choose a directory path to organise.")
     print("\nExamples of directory paths:\nDownloads\nDocuments" + r"\folder_name")
     print(r"OneDrive\Documents\folder_name")
 
