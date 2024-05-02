@@ -6,7 +6,7 @@ A Python script that organises your files in a chosen directory by sorting them 
 1. Install Python
 2. Download or clone the repo:
 ```bash 
-git clone https://github.com/l/file-sorter.git
+git clone https://github.com/luciavu/file-sorter.git
 ```
 3. Navigate to the directory via the terminal (cd)
 4. Run file-sorter.py:
