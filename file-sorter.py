@@ -31,7 +31,7 @@ def sort_directory(path):
     ".c": "Code", ".py": "Code", ".java": "Code", ".cpp": "Code",
     ".js": "Code", ".html": "Code", ".css": "Code", ".php": "Code", ".ipynb": "Code", 
     "unknown": "Other"
-}
+    }
 
     print("\nSorting files...")
     # Create folders to sort files into if not exist already
@@ -68,7 +68,7 @@ def sort_directory(path):
                 
         print("Done!") 
         print(f"Sorted: {sorted}/{total_files} files.\n")
-
+    
     except OSError as e:
         print(f"Error {e}")
 
